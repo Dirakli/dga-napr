@@ -1,0 +1,251 @@
+@import url("//cdn.web-fonts.ge/fonts/bpg-nino-mtavruli-bold/css/bpg-nino-mtavruli-bold.min.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@font-face {
+  font-family: "Nino";
+  src: url(/fonts/bpg-nino-mtavruli-bold-webfont.ttf);
+}
+
+span,
+li,
+p,
+.starterText,
+h1,
+.text-about,
+.button-from {
+  font-family: "Nino", sans-serif;
+}
+
+/* Classnames */
+
+.chairman {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.chairman-deputy {
+  margin-left: 66px;
+  margin-bottom: 30px;
+}
+
+.legal-department {
+  margin-left: 90px;
+  margin-bottom: 30px;
+}
+
+.court-service,
+.court-service-second,
+.court-service-third {
+  margin-left: 124px;
+  margin-bottom: 30px;
+}
+
+/* befote after */
+
+.chairman::after {
+  display: block;
+  content: "";
+  left: 0;
+  top: 60px;
+  position: absolute;
+  height: 4px;
+  background-color: #718096;
+  width: 100%;
+}
+
+.chairman-deputy-wrapper::after {
+  display: block;
+  content: "";
+  left: 15px;
+  top: 154px;
+  position: absolute;
+  height: 400px;
+  background-color: #718096;
+  width: 4px;
+}
+
+.chairman-deputy::before {
+  display: block;
+  content: "";
+  left: 18px;
+  top: 192px;
+  position: absolute;
+  height: 4px;
+  background-color: #718096;
+  width: 30px;
+}
+
+.chairman-deputy::after {
+  display: block;
+  content: "";
+  margin: 0 auto;
+  top: 212px;
+  position: absolute;
+  height: 15px;
+  background-color: #718096;
+  width: 4px;
+}
+
+.legal-department-wrapper::before {
+  display: block;
+  content: "";
+  left: 18px;
+  top: 227px;
+  position: absolute;
+  height: 4px;
+  background-color: #718096;
+  right: 50%;
+  margin-right: -43px;
+  margin-left: 18px;
+}
+
+.legal-department-wrapper::after {
+  display: block;
+  content: "";
+  left: 18px;
+  top: 230px;
+  position: absolute;
+  height: 300px;
+  width: 4px;
+  background-color: #718096;
+  margin-left: 18px;
+}
+
+.legal-department::before {
+  display: block;
+  content: "";
+  left: 40px;
+  top: 270px;
+  position: absolute;
+  height: 4px;
+  width: 20px;
+  background-color: #718096;
+}
+
+.legal-department::after {
+  display: block;
+  content: "";
+  margin: 0 auto;
+  top: 287px;
+  position: absolute;
+  height: 15px;
+  background-color: #718096;
+  width: 4px;
+}
+
+.court-service-wrapper::before {
+  display: block;
+  content: "";
+  left: 18px;
+  top: 299px;
+  position: absolute;
+  height: 4px;
+  background-color: #718096;
+  right: 50%;
+  margin-right: -55px;
+  margin-left: 43px;
+}
+
+.court-service-wrapper::after {
+  display: block;
+  content: "";
+  left: 18px;
+  top: 299px;
+  position: absolute;
+  height: 210px;
+  width: 4px;
+  background-color: #718096;
+  margin-left: 43px;
+}
+
+.court-service::before {
+  display: block;
+  content: "";
+  left: 62px;
+  top: 337px;
+  position: absolute;
+  height: 4px;
+  width: 16px;
+  background-color: #718096;
+}
+
+.court-service-second::before {
+  display: block;
+  content: "";
+  left: 62px;
+  top: 405px;
+  position: absolute;
+  height: 4px;
+  width: 16px;
+  background-color: #718096;
+}
+
+.court-service-third::before {
+  display: block;
+  content: "";
+  left: 62px;
+  top: 475px;
+  position: absolute;
+  height: 4px;
+  width: 16px;
+  background-color: #718096;
+}
+
+.court-service-third::after {
+  display: block;
+  content: "";
+  right: 0;
+  top: 508px;
+  position: absolute;
+  height: 4px;
+  width: calc(100% - 61px);
+  background-color: #718096;
+}
+
+.court-service-second::after {
+  display: block;
+  content: "";
+  right: 0;
+  top: 528px;
+  position: absolute;
+  height: 4px;
+  width: calc(100% - 36px);
+  background-color: #718096;
+}
+
+.court-service::after {
+  display: block;
+  content: "";
+  right: 0;
+  top: 550px;
+  position: absolute;
+  height: 4px;
+  width: calc(100% - 16px);
+  background-color: #718096;
+}

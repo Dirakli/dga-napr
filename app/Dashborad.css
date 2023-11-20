@@ -1,0 +1,26 @@
+.dashboard-container {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: background-color 0.5s;
+  }
+  
+  .blue {
+    background-color: blue;
+    color: white;
+  }
+  
+  .black {
+    background-color: black;
+    color: white;
+  }
+  
