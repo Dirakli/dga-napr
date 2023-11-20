@@ -7,7 +7,7 @@ function SectionNews() {
   const renderNews = () => {
     return dataPhotos.slice(0, 6).map((photo: any, index: number) => (
       <div
-        className="flex flex-col hover:rounded-b hover:pb-2 hover:200 
+        className="flex flex-col hover:rounded-b hover:pb-3 hover:200 
       hover:translate-y-8px hover:bg-slate-50 delay-100 duration-200
       justify-between items-start mt-3.5 cursor-pointer"
         key={index}
