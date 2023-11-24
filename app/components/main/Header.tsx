@@ -127,7 +127,7 @@ function Header() {
           />
           <Image
             className="bg-graycl sm:hidden flex p-1 cursor-pointer"
-            src={nightMode ? "/icons/More.svg" : "/icons/MoreDa rkmode.svg"}
+            src={nightMode ? "/icons/More.svg" : "/icons/MoreDarkmode.svg"}
             alt="Icon gives more options"
             width={25}
             height={30}
