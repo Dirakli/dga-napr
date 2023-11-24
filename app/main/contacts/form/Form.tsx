@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useThemeContext } from "@/app/context/theme";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ const Form = () => {
     email: "",
     message: "",
   });
+
+  const { nightMode }: any = useThemeContext();
 
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -47,7 +50,11 @@ const Form = () => {
   };
 
   return (
-    <div className="w-full mb-6 mt-10 p-10 rounded-lg bg-gray-200">
+    <div
+      className={`${
+        nightMode ? "bg-gray-200" : "bg-neutral-800"
+      } "w-full mb-6 mt-10 p-10 rounded-lg  `}
+    >
       <h1 className="text-base cursor-pointer rounded-sm text-custom-light-blue">
         დაგვიკავშირდით
       </h1>

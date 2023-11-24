@@ -13,6 +13,9 @@ function Header() {
     setMoreInfo,
     sidebar,
     setSidebar,
+    nightMode,
+    setNightMode,
+    NightModeFunc,
     ChangeFunc,
   }: any = useThemeContext();
 
@@ -32,65 +35,99 @@ function Header() {
   }
 
   return (
-    <div className="sticky top-0 bg-gray-300 z-50">
+    <div
+      className={`${
+        nightMode ? "bg-gray-300" : "bg-neutral-900"
+      } sticky top-0 z-50`}
+    >
       <div className="p-4 pb-3 z-10 flex justify-between items-center">
         <div className="w-24 flex items-center justify-between">
           <Image
             className="cursor-pointer"
             onClick={SidebarFunction}
-            src="/icons/Burger.svg"
+            src={!nightMode ? "/icons/BurgerDarkmode.svg" : "/icons/Burger.svg"}
             alt="burgerbar icon for menu"
             width={22}
             height={15.5}
             id="123"
           />
-          <Link onClick={() => ChangeFunc(1)} href="/">
+          <Link
+            href="/"
+            onClick={() => {
+              ChangeFunc(1);
+            }}
+          >
             <span
-              className={`${
-                moreInfo ? "hidden" : "flex"
-              }  text-sm cursor-pointer rounded-sm p-1 hover:bg-white font-bold  text-custom-light-blue`}
+              className={`${moreInfo ? "hidden" : "flex"}  text-sm ${
+                nightMode ? "text-custom-light-blue" : "text-white"
+              } cursor-pointer rounded-sm p-1 ${
+                nightMode ? "hover:bg-white" : "hover:bg-custom-blue"
+              } font-bold`}
             >
               მთავარი
             </span>
           </Link>
         </div>
+
         <div
           className={`${
             moreInfo ? "w-56" : "w-28"
-          } flex items-center justify-around`}
+          } flex sm:w-full items-center justify-around`}
         >
+          <div className="hidden sm:flex rounded-md items-center p-2.5">
+            <div className="flex">
+              <Image
+                src="/icons/SearchIcon.svg"
+                alt="search icon"
+                width={24}
+                height={24}
+              />
+              <input
+                className="pl-2 text-Input-value"
+                type="text"
+                placeholder="ძებნა"
+              />
+            </div>
+          </div>
           <Image
             onClick={showSearchBar}
-            className="cursor-pointer"
-            src="/icons/SearchIcon.svg"
+            className="cursor-pointer sm:hidden"
+            src={
+              nightMode
+                ? "/icons/SearchIcon.svg"
+                : "/icons/SearchIconDarkmode.svg"
+            }
             alt="search bar icon"
             width={22}
             height={15.5}
           />
           <Image
-            className={`${moreInfo ? "flex" : "hidden"} cursor-pointer`}
-            src="/icons/Adaptive.svg"
+            className={`${moreInfo ? "flex" : "hidden"} sm:flex cursor-pointer`}
+            src={
+              nightMode ? "/icons/Adaptive.svg" : "/icons/AdaptiveDarkmode.svg"
+            }
             alt="Adaptive icon"
             width={25}
             height={30}
           />
           <Image
-            className={`${moreInfo ? "flex" : "hidden"} cursor-pointer`}
-            src="/icons/EN.svg"
+            className={`${moreInfo ? "flex" : "hidden"} sm:flex cursor-pointer`}
+            src={nightMode ? "/icons/EN.svg" : "/icons/ENDarkmode.svg"}
             alt="english version icon"
             width={25}
             height={30}
           />
           <Image
-            className={`${moreInfo ? "flex" : "hidden"} cursor-pointer`}
-            src="/icons/NightMode.svg"
+            onClick={NightModeFunc}
+            className={`${moreInfo ? "flex" : "hidden"} sm:flex cursor-pointer`}
+            src={nightMode ? "/icons/NightMode.svg" : "/icons/Sun.svg"}
             alt="nightmode icon"
             width={25}
             height={30}
           />
           <Image
-            className="bg-graycl p-1 cursor-pointer"
-            src="/icons/More.svg"
+            className="bg-graycl sm:hidden flex p-1 cursor-pointer"
+            src={nightMode ? "/icons/More.svg" : "/icons/MoreDarkmode.svg"}
             alt="Icon gives more options"
             width={25}
             height={30}
@@ -105,6 +142,13 @@ function Header() {
               height={30}
             />
           </Link>
+          <Image
+            className="cursor-pointer sm:flex hidden"
+            src="/icons/HeaderIcon.svg"
+            alt="heading logo"
+            width={50}
+            height={30}
+          />
         </div>
       </div>
       {visibleSearchbar ? <Searchbar /> : ""}

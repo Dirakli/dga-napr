@@ -249,3 +249,16 @@ h1,
   width: calc(100% - 16px);
   background-color: #718096;
 }
+
+.wrapper {
+  min-height: calc(100vh - 121.69px);
+}
+
+.statistics {
+  box-shadow: 5px 5px;
+}
+
+.statistics:active {
+  transform: translate(5px, 5px);
+  transition: transform 0.3s ease-in-out;
+}

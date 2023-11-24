@@ -12,12 +12,15 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
   const [dataDate, setDataDate] = useState<any>(null);
   const [showMainContent, setShowMainContent] = useState(true);
   const [forceOpen, setForceOpen] = useState(false);
+  const [nightMode, setNightMode] = useState(true);
+  const [selectedItem, setSelectedItem] = useState<string | null>(
+    "ჩვენ შესახებ"
+  );
 
   function ChangeFunc(num: any) {
-    setId((prevId: any) => {
-      console.log("context ID", prevId);
-      return num;
-    });
+    setId(num);
+    localStorage.setItem("themeId", num);
+    console.log("IDDDDDDD", id); // Save to local storage
   }
 
   useEffect(() => {
@@ -49,6 +52,11 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
     fetchDate();
   }, []);
 
+  function NightModeFunc() {
+    setNightMode(!nightMode);
+    console.log("nightmodee", nightMode);
+  }
+
   return (
     <ThemeContext.Provider
       value={{
@@ -66,8 +74,13 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
         dataDate,
         setShowMainContent,
         showMainContent,
+        selectedItem,
+        setSelectedItem,
         forceOpen,
         setForceOpen,
+        nightMode,
+        setNightMode,
+        NightModeFunc,
       }}
     >
       {children}

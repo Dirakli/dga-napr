@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useThemeContext } from "@/app/context/theme";
 
 function Footer() {
-  const { id, setId }: any = useThemeContext();
+  const { id, setId, nightMode, selectedItem }: any = useThemeContext();
 
   const Plus = () => {
     if (id < 3) {
@@ -21,8 +21,12 @@ function Footer() {
   };
 
   return id !== 4 ? (
-    <div className="sticky bottom-0 bg-gray-300">
-      <div className="flex items-center justify-between p-4 pb-3 border-t-2 border-white h-16">
+    <div
+      className={`${nightMode ? "bg-gray-300" : "bg-neutral-900"} sticky ${
+        selectedItem ? "" : "hidden"
+      } bottom-0`}
+    >
+      <div className="flex items-center justify-between p-4 pb-3 border-t-[1px] border-white h-16">
         <span className="text-sm cursor-pointer text-custom-blue">
           {id === 1
             ? "სერვისები"

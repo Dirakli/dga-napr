@@ -1,10 +1,11 @@
-'use client'
-import { useThemeContext } from '@/app/context/theme';
-import { useEffect, useState } from 'react';
+"use client";
+import { useThemeContext } from "@/app/context/theme";
+import { useEffect, useState } from "react";
 
 const Home = (): JSX.Element => {
-  const { showMainContent, setShowMainContent }: any = useThemeContext();
-  const [typedText, setTypedText] = useState('');
+  const { showMainContent, setShowMainContent, nightMode }: any =
+    useThemeContext();
+  const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -31,8 +32,16 @@ const Home = (): JSX.Element => {
   }, [showMainContent]);
 
   return (
-    <div className={`transition-transform duration-300 ease-in-out transform ${showMainContent ? 'translate-x-0' : '-translate-x-full'} bg-gray-300 absolute h-screen w-full flex items-center justify-center`} >
-      <h2 className=' w-64 text-2xl text-custom-blue text-center starterText' >{typedText}</h2>
+    <div
+      className={`transition-transform z-[10000] duration-300 ease-in-out transform ${
+        showMainContent ? "translate-x-0" : "-translate-x-full"
+      } ${
+        nightMode ? "bg-gray-300" : "bg-neutral-900"
+      } absolute h-screen w-full flex items-center justify-center`}
+    >
+      <h2 className=" w-64 text-2xl text-custom-blue text-center starterText">
+        {typedText}
+      </h2>
     </div>
   );
 };

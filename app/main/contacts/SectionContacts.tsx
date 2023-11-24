@@ -1,10 +1,12 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Form from "./form/Form";
+import { useThemeContext } from "@/app/context/theme";
 
 function SectionContacts() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [showTbilisiAddress, setShowTbilisiAddress] = useState(false);
+  const { nightMode }: any = useThemeContext();
 
   const dataRegions = [
     "აჭარა",
@@ -93,22 +95,36 @@ function SectionContacts() {
         <h1 className="text-custom-light-blue text-base">კონტაქტი</h1>
         <p className="mt-6 text-custom-gray text-sm">
           სამუშაო დრო:{" "}
-          <span className="text-custom-blue-dark">
+          <span
+            className={`${nightMode ? "text-custom-blue-dark" : "text-white"}`}
+          >
             ორშაბათი-პარასკევი; 09:00-18:00სთ
           </span>{" "}
         </p>
         <p className=" text-custom-gray text-sm">
-          ცხელი ხაზი: <span>2 405 405</span>{" "}
+          ცხელი ხაზი:{" "}
+          <span
+            className={`${nightMode ? "text-custom-blue-dark" : "text-white"}`}
+          >
+            2 405 405
+          </span>{" "}
         </p>
         <p className=" text-custom-gray text-sm">
-          ელფოსტა: <span>INFO@NAPR.GOV.GE</span>
+          ელფოსტა:{" "}
+          <span
+            className={`${nightMode ? "text-custom-blue-dark" : "text-white"}`}
+          >
+            INFO@NAPR.GOV.GE
+          </span>
         </p>
       </div>
       <div className="pb-5 pt-[20px] flex justify-between w-1/2">
         <a href="https://www.facebook.com/NAPR.gov.ge" target="_blank">
           <Image
             className=""
-            src="/icons/Facebook.svg"
+            src={
+              nightMode ? "/icons/Facebook.svg" : "/icons/FacebookDarkmode.svg"
+            }
             alt="Facebook icon"
             width={20}
             height={20}
@@ -117,7 +133,11 @@ function SectionContacts() {
         <a href="https://www.instagram.com/npr/?hl=en" target="_blank">
           <Image
             className=""
-            src="/icons/Instagram.svg"
+            src={
+              nightMode
+                ? "/icons/Instagram.svg"
+                : "/icons/InstagramDarkmode.svg"
+            }
             alt="Instagram icon"
             width={20}
             height={20}
@@ -126,7 +146,9 @@ function SectionContacts() {
         <a href="https://twitter.com/naprgeorgia?lang=en" target="_blank">
           <Image
             className=""
-            src="/icons/Twitter.svg"
+            src={
+              nightMode ? "/icons/Twitter.svg" : "/icons/TwitterDarkmode.svg"
+            }
             alt="Twitter icon"
             width={20}
             height={20}
@@ -135,7 +157,9 @@ function SectionContacts() {
         <a href="https://www.facebook.com/NAPR.gov.ge" target="_blank">
           <Image
             className=""
-            src="/icons/Facebook.svg"
+            src={
+              nightMode ? "/icons/Facebook.svg" : "/icons/FacebookDarkmode.svg"
+            }
             alt="Facebook icon"
             width={20}
             height={20}
@@ -161,7 +185,11 @@ function SectionContacts() {
           {showTbilisiAddress && (
             <p className="text-sm text-custom-gray">
               სათაო ოფისი
-              <span className="text-custom-blue-dark">
+              <span
+                className={`${
+                  nightMode ? "text-custom-blue-dark" : "text-white"
+                }`}
+              >
                 {" "}
                 ქ.თბილისი, ვახტანგ გორგასლის ქ. N22
               </span>
@@ -188,7 +216,11 @@ function SectionContacts() {
               {selectedLocation === index && (
                 <p className="text-sm text-custom-gray">
                   რეგიონალური ოფისი
-                  <span className="text-custom-blue-dark">
+                  <span
+                    className={`${
+                      nightMode ? "text-custom-blue-dark" : "text-white"
+                    }`}
+                  >
                     {regionAdress[index]}
                   </span>
                 </p>
@@ -216,7 +248,11 @@ function SectionContacts() {
               {selectedLocation === index + dataRegions.length && (
                 <p className="text-sm text-custom-gray">
                   ფილიალი
-                  <span className="text-custom-blue-dark">
+                  <span
+                    className={`${
+                      nightMode ? "text-custom-blue-dark" : "text-white"
+                    }`}
+                  >
                     {cityAdress[index]}
                   </span>
                 </p>

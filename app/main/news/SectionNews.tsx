@@ -2,14 +2,16 @@ import React from "react";
 import { useThemeContext } from "@/app/context/theme";
 
 function SectionNews() {
-  const { dataPhotos, dataTitle, dataDate }: any = useThemeContext();
+  const { dataPhotos, dataTitle, dataDate, nightMode }: any = useThemeContext();
 
   const renderNews = () => {
     return dataPhotos.slice(0, 6).map((photo: any, index: number) => (
       <div
-        className="flex flex-col hover:rounded-b hover:pb-3 hover:200 
-      hover:translate-y-8px hover:bg-slate-50 delay-100 duration-200
-      justify-between items-start mt-3.5 cursor-pointer"
+        className={`${
+          nightMode ? "hover:bg-slate-50" : "hover:bg-neutral-800"
+        } flex flex-col hover:rounded-b hover:pb-3 hover:200 
+        hover:translate-y-8px  delay-100 duration-200
+        justify-between items-start mt-3.5 cursor-pointer`}
         key={index}
       >
         <img
@@ -17,7 +19,11 @@ function SectionNews() {
           src={photo.url}
           alt={`news cover photo`}
         />
-        <h1 className="pl-3 mt-3 text-custom-black text-sm font-bold ">
+        <h1
+          className={`${
+            nightMode ? "text-custom-black" : "text-white"
+          } pl-3 mt-3 text-sm font-bold`}
+        >
           {dataTitle[index]?.title}
         </h1>
         <h4 className="pl-3 mt-2 text-custom-gray text-xs font-normal">

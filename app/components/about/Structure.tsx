@@ -1,14 +1,24 @@
 import React from "react";
 import Image from "next/image";
+import { useThemeContext } from "@/app/context/theme";
 
 function Structure() {
+  const { nightMode, selectedItem, setSelectedItem }: any = useThemeContext();
+
+  function SelectFunc() {
+    return setSelectedItem("ჩვენ შესახებ");
+  }
+
   return (
     <div className="h-screen w-full overflow-hidden flex flex-col">
       <div className="flex items-center">
         <Image
+          onClick={SelectFunc}
           src="./icons/arrows/ArrowUp.svg"
           alt="left side arrow"
-          className="transform -rotate-90 bg-gray-300"
+          className={`${
+            nightMode ? "bg-gray-300" : "bg-neutral-900"
+          } transform -rotate-90 `}
           width={35}
           height={30}
         />
@@ -16,7 +26,7 @@ function Structure() {
           სააგენტოს შესახებ
         </p>
       </div>
-      <div className="flex flex-col items-end pl-4">
+      <div className="flex flex-col items-end pl-4 text-black ">
         <div className="w-full flex flex-col chairman items-center justify-around bg-white rounded-md">
           <span className="text-sm">თავმჯდომარე</span>
           <h3 className="text-base">დავით დევიძე</h3>

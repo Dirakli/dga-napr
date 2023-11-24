@@ -7,12 +7,15 @@ import History from "../components/about/History";
 import Formers from "../components/about/Formers";
 import Structure from "../components/about/Structure";
 import Acts from "../components/public/Acts";
+import { useThemeContext } from "../context/theme";
 
 function page() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedSection, setSelectedSection] = useState<string | null>(
     "სამართლებრივი აქტები"
   );
+
+  const { nightMode, showMainContent }: any = useThemeContext();
 
   const selectorRef = useRef(null);
 
@@ -38,15 +41,19 @@ function page() {
   };
 
   return (
-    <div className="w-full  text-black flex overflow-hidden pl-4 pb-8 flex-col">
+    <div
+      className={`${!nightMode ? "bg-neutral-900" : ""} w-full ${
+        !showMainContent ? "flex" : "hidden"
+      } text-black flex overflow-hidden pl-4 pb-8 flex-col`}
+    >
       <div
         id="125"
         ref={selectorRef}
-        className={`${
-          !isOpen ? "rounded-lg" : "rounded-t-lg"
-        } bg-custom-selector-white p-3 fixed h-10 flex flex-col left-4 right-4 items-center border-white justify-between top-16 ${
-          isOpen ? "border-b-2" : ""
-        } `}
+        className={`${!isOpen ? "rounded-lg" : "rounded-t-lg"} ${
+          nightMode ? "bg-custom-selector-white" : "bg-neutral-800"
+        } p-3 fixed h-10 flex flex-col left-4 right-4 items-center ${
+          nightMode ? "border-white" : "border-gray-500"
+        } justify-between top-16 ${isOpen ? "border-b-2" : ""} `}
       >
         <button
           onClick={() => setIsOpen((prev) => !prev)}
@@ -65,15 +72,19 @@ function page() {
           ></Image>
         </button>
         {isOpen && (
-          <div className=" bg-custom-selector-white absolute top-10 flex flex-col items-start rounded-b-lg w-full">
+          <div
+            className={`${
+              nightMode ? "bg-custom-selector-white " : "bg-neutral-800"
+            } absolute top-10 flex flex-col items-start rounded-b-lg w-full`}
+          >
             {listPublic.map((item: any, index: any) => {
               return (
                 <div
                   onClick={() => handleItemClick(item)}
                   key={index}
-                  className={`${
-                    isOpen ? "border-b-2" : ""
-                  } w-full border-white flex justify-between items-center h-10`}
+                  className={`${isOpen ? "border-b-2" : ""} w-full ${
+                    nightMode ? "border-white" : "border-gray-500"
+                  } flex justify-between items-center h-10`}
                 >
                   <h3 className="text-sm cursor-pointer text-arrow-gray active:text-custom-blue ml-3">
                     {item}

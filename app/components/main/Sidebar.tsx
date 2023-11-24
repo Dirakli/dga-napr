@@ -5,7 +5,8 @@ import { useThemeContext } from "../../context/theme";
 import Link from "next/link";
 
 function Sidebar() {
-  const { sidebar, setSidebar, ChangeFunc, setId }: any = useThemeContext();
+  const { sidebar, setSidebar, ChangeFunc, setId, nightMode }: any =
+    useThemeContext();
   const [isAccordion, setIsAccordion] = useState<boolean>(false);
   const sidebarRef = useRef(null);
 
@@ -41,30 +42,38 @@ function Sidebar() {
       ref={sidebarRef}
       className={` z-[500] transition-transform duration-300 ease-in-out transform ${
         sidebar ? "translate-x-0" : "-translate-x-full"
-      } fixed bg-white h-screen w-65 flex flex-col items-start justify-start pt-10 pl-8 overflow-hidden`}
+      } fixed ${
+        nightMode ? "bg-white" : "bg-neutral-900"
+      } h-screen w-65 flex flex-col border-r-[1px] border-red-100 items-start justify-start pt-10 pl-8 overflow-hidden`}
     >
       <div>
         <Image
           className="cursor-pointer"
           onClick={() => SidebarFunc(setSidebar)}
-          src="/icons/Xbutton.svg"
+          src={`${
+            nightMode ? "/icons/Xbutton.svg" : "/icons/XbuttonDarkmode.svg"
+          }`}
           alt="close button icon"
           width={20}
           height={20}
         />
       </div>
-      <div className="flex flex-col mt-30% pt-2.5 min-h-240px justify-around">
+      <div
+        className={`${
+          nightMode ? "text-custom-light-blue" : "text-white"
+        } flex flex-col mt-30% pt-2.5 min-h-240px justify-around `}
+      >
         <p
           onClick={() => {
             Toggle(setIsAccordion, isAccordion);
             console.log("accordion state", isAccordion);
           }}
-          className="text-sm font-bold cursor-pointer text-custom-light-blue"
+          className="text-sm font-bold cursor-pointer "
         >
           მთავარი
         </p>
         {!isAccordion ? (
-          <div className="pl-2.5 pt-5">
+          <div className="pl-2.5  pt-5">
             <Link
               onClick={() => {
                 SidebarFunc(setSidebar);
@@ -72,7 +81,7 @@ function Sidebar() {
               }}
               href="/"
             >
-              <p className="text-xs text-custom-light-blue">სერვისები</p>
+              <p className="text-xs ">სერვისები</p>
             </Link>
             <Link
               onClick={() => {
@@ -81,7 +90,7 @@ function Sidebar() {
               }}
               href="/"
             >
-              <p className="text-xs text-custom-light-blue pt-6">სიახლე</p>
+              <p className="text-xs  pt-6">სიახლე</p>
             </Link>
             <Link
               onClick={() => {
@@ -90,7 +99,7 @@ function Sidebar() {
               }}
               href="/"
             >
-              <p className="text-xs text-custom-light-blue pt-6">კონტაქტი</p>
+              <p className="text-xs  pt-6">კონტაქტი</p>
             </Link>
           </div>
         ) : (
@@ -103,7 +112,7 @@ function Sidebar() {
           }}
           href="/about"
         >
-          <p className="pt-6 text-sm font-bold cursor-pointer text-custom-light-blue">
+          <p className="pt-6 text-sm font-bold cursor-pointer ">
             სააგენტოს შესახებ
           </p>
         </Link>
@@ -114,7 +123,7 @@ function Sidebar() {
           }}
           href="/public"
         >
-          <p className="pt-6 text-sm font-bold cursor-pointer text-custom-light-blue">
+          <p className="pt-6 text-sm font-bold cursor-pointer ">
             საჯარო ინფორმაცია
           </p>
         </Link>
@@ -125,7 +134,16 @@ function Sidebar() {
           }}
           href="/statistics"
         >
-          <p className="pt-6 text-sm font-bold cursor-pointer text-custom-light-blue">
+          <p
+            className={`pt-6 text-sm font-bold ${
+              window.location.pathname === "/statistics" ||
+              window.location.pathname === "/required" ||
+              window.location.pathname === "/public" ||
+              window.location.pathname === "/about"
+                ? "hidden"
+                : ""
+            } cursor-pointer`}
+          >
             სტატისტიკა
           </p>
         </Link>
@@ -136,7 +154,7 @@ function Sidebar() {
           }}
           href="/required"
         >
-          <p className="pt-6 text-sm font-bold cursor-pointer text-custom-light-blue">
+          <p className="pt-6 text-sm font-bold cursor-pointer ">
             საჭირო ინფორმაცია
           </p>
         </Link>

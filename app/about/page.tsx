@@ -11,12 +11,13 @@ import Strategy from "../components/about/Strategy";
 import LegalActs from "../components/about/LegalActs";
 import Vacancy from "../components/about/Vacancy";
 import Publication from "../components/about/Publication";
+import { useThemeContext } from "../context/theme";
 
 function page() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<string | null>(
-    "ჩვენ შესახებ"
-  );
+
+  const { nightMode, selectedItem, setSelectedItem, showMainContent }: any =
+    useThemeContext();
 
   const selectorRef = useRef(null);
 
@@ -42,17 +43,21 @@ function page() {
   };
 
   return (
-    <div className="w-full  text-black flex overflow-hidden pb-8 flex-col">
+    <div
+      className={`${nightMode ? "" : "bg-neutral-900"} w-full ${
+        !showMainContent ? "flex" : "hidden"
+      } text-black overflow-hidden pb-8 flex-col `}
+    >
       <div
         id="125"
         ref={selectorRef}
-        className={`${
-          !isOpen ? "rounded-lg" : "rounded-t-lg"
-        } bg-custom-selector-white p-3 fixed ${
+        className={`${!isOpen ? "rounded-lg" : "rounded-t-lg"} ${
+          nightMode ? "bg-custom-selector-white " : "bg-neutral-800"
+        } p-3 fixed ${
           selectedItem === "სტრუქტურა" ? "hidden" : "flex"
-        } h-10 flex flex-col left-4 right-4 items-center border-white justify-between top-16 ${
-          isOpen ? "border-b-2" : ""
-        } `}
+        } h-10 flex flex-col left-4 right-4 items-center ${
+          nightMode ? "border-white" : "border-neutral-500"
+        } justify-between top-16 ${isOpen ? "border-b-2" : ""} `}
       >
         <button
           onClick={() => setIsOpen((prev) => !prev)}
@@ -71,15 +76,19 @@ function page() {
           ></Image>
         </button>
         {isOpen && (
-          <div className=" bg-custom-selector-white absolute top-10 flex flex-col items-start rounded-b-lg w-full">
+          <div
+            className={`${
+              nightMode ? "bg-custom-selector-white" : "bg-neutral-800"
+            }  absolute top-10 flex flex-col items-start rounded-b-lg w-full`}
+          >
             {list.map((item: any, index: any) => {
               return (
                 <div
                   onClick={() => handleItemClick(item)}
                   key={index}
-                  className={`${
-                    isOpen ? "border-b-2" : ""
-                  } w-full border-white flex justify-between items-center h-10`}
+                  className={`${isOpen ? "border-b-2" : ""} w-full ${
+                    nightMode ? "border-white" : "border-neutral-500"
+                  } flex justify-between items-center h-10`}
                 >
                   <h3 className="text-sm cursor-pointer text-arrow-gray active:text-custom-blue ml-3">
                     {item}
@@ -90,27 +99,29 @@ function page() {
           </div>
         )}
       </div>
-      {selectedItem === "ჩვენ შესახებ" ? (
-        <AboutUs />
-      ) : selectedItem === "ისტორია" ? (
-        <History />
-      ) : selectedItem === "ყოფილი თანამშრომლები" ? (
-        <Formers />
-      ) : selectedItem === "სტრუქტურა" ? (
-        <Structure />
-      ) : selectedItem === "ანგარიში" ? (
-        <Report />
-      ) : selectedItem === "სტრატეგია" ? (
-        <Strategy />
-      ) : selectedItem === "სამართლებრივი აქტი" ? (
-        <LegalActs />
-      ) : selectedItem === "ვაკანსია" ? (
-        <Vacancy />
-      ) : selectedItem === "პუბლიკაცია" ? (
-        <Publication />
-      ) : (
-        ""
-      )}
+      <div className={`${nightMode ? "" : "text-white"}`}>
+        {selectedItem === "ჩვენ შესახებ" ? (
+          <AboutUs />
+        ) : selectedItem === "ისტორია" ? (
+          <History />
+        ) : selectedItem === "ყოფილი თანამშრომლები" ? (
+          <Formers />
+        ) : selectedItem === "სტრუქტურა" ? (
+          <Structure />
+        ) : selectedItem === "ანგარიში" ? (
+          <Report />
+        ) : selectedItem === "სტრატეგია" ? (
+          <Strategy />
+        ) : selectedItem === "სამართლებრივი აქტი" ? (
+          <LegalActs />
+        ) : selectedItem === "ვაკანსია" ? (
+          <Vacancy />
+        ) : selectedItem === "პუბლიკაცია" ? (
+          <Publication />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
