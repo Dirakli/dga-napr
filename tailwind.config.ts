@@ -20,6 +20,9 @@ const config: Config = {
       },
       height: {
         "210": "210px",
+        "small-height": "calc(100% - 121.69px)",
+        "big-height": "calc(100vh - 57.69px)",
+        "smaller-height": "calc(100vh - 121.69px)",
       },
       colors: {
         "custom-blue": "#006EE5",

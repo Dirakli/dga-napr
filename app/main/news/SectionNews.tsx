@@ -10,12 +10,12 @@ function SectionNews() {
         className={`${
           nightMode ? "hover:bg-slate-50" : "hover:bg-neutral-800"
         } flex flex-col hover:rounded-b hover:pb-3 hover:200 
-        hover:translate-y-8px  delay-100 duration-200
+        hover:translate-y-8px  delay-100 duration-200 
         justify-between items-start mt-3.5 cursor-pointer`}
         key={index}
       >
         <img
-          className="h-56 w-full hover: top-1/3"
+          className="h-56 w-full hover:top-1/3"
           src={photo.url}
           alt={`news cover photo`}
         />

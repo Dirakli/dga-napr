@@ -262,3 +262,7 @@ h1,
   transform: translate(5px, 5px);
   transition: transform 0.3s ease-in-out;
 }
+
+.bigger-width {
+  width: calc(100% - 50px);
+}

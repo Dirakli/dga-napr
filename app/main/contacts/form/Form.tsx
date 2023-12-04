@@ -24,17 +24,13 @@ const Form = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    // Check if all required fields are filled
     if (
       formData.name.trim() === "" ||
       formData.email.trim() === "" ||
       formData.message.trim() === ""
     ) {
-      // If any required field is empty, you can handle it accordingly (e.g., show an error message)
       console.log("Please fill in all required fields");
     } else {
-      // Assuming you have a function to handle form submission, replace the following line accordingly
-      // For demonstration purposes, let's simulate a successful submission
       const isSubmissionSuccessful = true;
 
       if (isSubmissionSuccessful) {
@@ -53,7 +49,7 @@ const Form = () => {
     <div
       className={`${
         nightMode ? "bg-gray-200" : "bg-neutral-800"
-      } "w-full mb-6 mt-10 p-10 rounded-lg  `}
+      } "w-full sm:h-[450px] sm:w-full mb-6 mt-10 p-10 rounded-lg  `}
     >
       <h1 className="text-base cursor-pointer rounded-sm text-custom-light-blue">
         დაგვიკავშირდით
