@@ -46,7 +46,9 @@ function page() {
     <div
       className={`${nightMode ? "" : "bg-neutral-900"} w-full ${
         !showMainContent ? "flex" : "hidden"
-      } text-black overflow-hidden pb-8 flex-col `}
+      } text-black overflow-hidden pb-8 flex-col sm:border-l-2 ${
+        !nightMode ? "sm:border-black" : ""
+      } `}
     >
       <div
         id="125"
@@ -57,7 +59,7 @@ function page() {
           selectedItem === "სტრუქტურა" ? "hidden" : "flex"
         } h-10 flex flex-col left-4 right-4 items-center ${
           nightMode ? "border-white" : "border-neutral-500"
-        } justify-between top-16 ${isOpen ? "border-b-2" : ""} `}
+        } justify-between top-16 ${isOpen ? "border-b-2" : ""} sm:hidden`}
       >
         <button
           onClick={() => setIsOpen((prev) => !prev)}
@@ -99,7 +101,11 @@ function page() {
           </div>
         )}
       </div>
-      <div className={`${nightMode ? "" : "text-white"}`}>
+      <div
+        className={`${
+          nightMode ? "" : "text-white"
+        } sm:flex sm:justify-center `}
+      >
         {selectedItem === "ჩვენ შესახებ" ? (
           <AboutUs />
         ) : selectedItem === "ისტორია" ? (

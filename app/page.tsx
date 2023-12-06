@@ -3,7 +3,7 @@ import SectionServices from "./main/services/SectionServices";
 import { useThemeContext } from "./context/theme";
 import SectionNews from "./main/news/SectionNews";
 import SectionContacts from "./main/contacts/SectionContacts";
-import { useState } from "react";
+import ServiceList from "./components/main/ServiceList";
 
 export default function Home(): JSX.Element {
   const { id, setId, nightMode }: any = useThemeContext();
@@ -17,7 +17,7 @@ export default function Home(): JSX.Element {
       <ul className="hidden sm:flex flex-col opacity-50 absolute left-4 top-[70px] ">
         <li
           onClick={() => ChangeId(1)}
-          className={`${id === 1 ? "text-custom-blue" : ""}  ${
+          className={`${id === 1 ? "text-custom-blue" : "text-gray-500"}  ${
             id === 1 ? "border-l-2 border-custom-blue" : ""
           } text-sm pl-1 mt-4 cursor-pointer  `}
         >
@@ -25,7 +25,9 @@ export default function Home(): JSX.Element {
         </li>
         <li
           onClick={() => ChangeId(2)}
-          className={`${id === 2 ? "text-custom-blue" : ""} ${
+          className={` ${id === 2 ? "text-custom-blue" : "text-gray-500"}
+            
+          ${
             id === 2 ? "border-l-2 border-custom-blue" : ""
           } text-sm pl-1 mt-4 cursor-pointer  `}
         >
@@ -33,21 +35,26 @@ export default function Home(): JSX.Element {
         </li>
         <li
           onClick={() => ChangeId(3)}
-          className={`${id === 3 ? "text-custom-blue" : ""} ${
+          className={`${id === 3 ? "text-custom-blue" : "text-gray-500"} ${
             id === 3 ? "border-l-2 border-custom-blue" : ""
           } text-sm pl-1 mt-4 cursor-pointer  `}
         >
           კონტაქტი
         </li>
       </ul>
-      <p className="hidden pl-1 sm:flex text-sm flex-col opacity-50 absolute cursor-pointer left-[20px] top-[80%]">
+      <p className="hidden pl-1 sm:flex text-sm text-gray-500 flex-col opacity-50 absolute cursor-pointer left-[20px] top-[80%]">
         საიტის <br /> რუკა
       </p>
-      <div className="hidden pl-1 text-sm bigger-width sm:flex justify-between opacity-50 absolute cursor-pointer left-[20px] top-[95%]">
-        <p> საჯარო რეესტრის ეროვნული სააგენტო 2022წ</p>
-        <p>ყველა უფლება დაცულია</p>
-        <p>ვებსაიტის გამოყენების წესები და პირობები</p>
-      </div>
+      {id === 3 ? (
+        <div className="hidden pl-1 text-sm bigger-width text-gray-500 sm:flex justify-between opacity-50 absolute cursor-pointer left-[20px] top-[95%]">
+          <p> საჯარო რეესტრის ეროვნული სააგენტო 2022წ</p>
+          <p>ყველა უფლება დაცულია</p>
+          <p>ვებსაიტის გამოყენების წესები და პირობები</p>
+        </div>
+      ) : (
+        ""
+      )}
+      {id === 1 ? <ServiceList /> : ""}
       <div
         className={`${!nightMode ? "bg-neutral-900" : ""} flex 
         h-small-height sm:h-big-height

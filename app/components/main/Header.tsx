@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useThemeContext } from "../../context/theme";
 import Searchbar from "./Searchbar";
 import Link from "next/link";
+import HeaderNav from "./HeaderNav";
 
 function Header() {
   const {
@@ -25,7 +26,7 @@ function Header() {
   }
 
   function SidebarFunction() {
-    setSidebar(true);
+    setSidebar(!sidebar); // ეს შევცვალე 14:54ზე //
     console.log("sidebar", sidebar);
   }
 
@@ -42,15 +43,31 @@ function Header() {
     >
       <div className="p-4 pb-3 z-10 flex justify-between items-center">
         <div className="w-24 flex items-center justify-between">
-          <Image
-            className="cursor-pointer"
-            onClick={SidebarFunction}
-            src={!nightMode ? "/icons/BurgerDarkmode.svg" : "/icons/Burger.svg"}
-            alt="burgerbar icon for menu"
-            width={22}
-            height={15.5}
-            id="123"
-          />
+          {!sidebar ? (
+            <Image
+              className="cursor-pointer"
+              onClick={SidebarFunction}
+              src={
+                !nightMode ? "/icons/BurgerDarkmode.svg" : "/icons/Burger.svg"
+              }
+              alt="burgerbar icon for menu"
+              width={22}
+              height={15.5}
+              id="123"
+            />
+          ) : (
+            <Image
+              className="cursor-pointer"
+              onClick={SidebarFunction}
+              src={
+                !nightMode ? "/icons/XbuttonDarkmode.svg" : "/icons/Xbutton.svg"
+              }
+              alt="burgerbar icon for menu"
+              width={22}
+              height={15.5}
+              id="123"
+            />
+          )}
           <Link
             href="/"
             onClick={() => {
@@ -68,7 +85,13 @@ function Header() {
             </span>
           </Link>
         </div>
-        <div className="flex sm:w-[70%] justify-between">
+        {!sidebar ? "" : <HeaderNav />}
+
+        <div
+          className={`${
+            !sidebar ? "sm:w-[70%]" : "sm:w-[40%]"
+          } flex justify-between`}
+        >
           <div className="hidden sm:flex justify-start rounded-md items-center">
             <div className="flex bg-slate-200 rounded-lg pl-2.5">
               <Image
@@ -78,7 +101,9 @@ function Header() {
                 height={20}
               />
               <input
-                className="pl-2 sm:min-w-[100px] bg-slate-200 rounded-lg md:w-[300px] text-Input-value"
+                className={`${
+                  sidebar ? "md:w-[200px]" : "md:w-[300px]"
+                }pl-2 sm:min-w-[100px] bg-slate-200 rounded-lg text-Input-value`}
                 type="text"
                 placeholder="ძებნა"
               />

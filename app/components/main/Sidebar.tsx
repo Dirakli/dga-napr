@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useThemeContext } from "../../context/theme";
 import Link from "next/link";
+import SidebarNavigation from "./SidebarNavigation";
 
 function Sidebar() {
   const { sidebar, setSidebar, ChangeFunc, setId, nightMode }: any =
@@ -40,7 +41,7 @@ function Sidebar() {
   return (
     <div
       ref={sidebarRef}
-      className={` z-[500] transition-transform duration-300 ease-in-out transform ${
+      className={` z-[500] lg:hidden transition-transform duration-300 ease-in-out transform ${
         sidebar ? "translate-x-0" : "-translate-x-full"
       } fixed ${
         nightMode ? "bg-white" : "bg-neutral-900"
@@ -58,107 +59,7 @@ function Sidebar() {
           height={20}
         />
       </div>
-      <div
-        className={`${
-          nightMode ? "text-custom-light-blue" : "text-white"
-        } flex flex-col mt-30% pt-2.5 min-h-240px justify-around `}
-      >
-        <p
-          onClick={() => {
-            Toggle(setIsAccordion, isAccordion);
-            console.log("accordion state", isAccordion);
-          }}
-          className="text-sm font-bold cursor-pointer "
-        >
-          მთავარი
-        </p>
-        {!isAccordion ? (
-          <div className="pl-2.5  pt-5">
-            <Link
-              onClick={() => {
-                SidebarFunc(setSidebar);
-                ChangeFunc(1);
-              }}
-              href="/"
-            >
-              <p className="text-xs ">სერვისები</p>
-            </Link>
-            <Link
-              onClick={() => {
-                SidebarFunc(setSidebar);
-                ChangeFunc(2);
-              }}
-              href="/"
-            >
-              <p className="text-xs  pt-6">სიახლე</p>
-            </Link>
-            <Link
-              onClick={() => {
-                SidebarFunc(setSidebar);
-                ChangeFunc(3);
-              }}
-              href="/"
-            >
-              <p className="text-xs  pt-6">კონტაქტი</p>
-            </Link>
-          </div>
-        ) : (
-          ""
-        )}
-        <Link
-          onClick={() => {
-            SidebarFunc(setSidebar);
-            setId(4);
-          }}
-          href="/about"
-        >
-          <p className="pt-6 text-sm font-bold cursor-pointer ">
-            სააგენტოს შესახებ
-          </p>
-        </Link>
-        <Link
-          onClick={() => {
-            SidebarFunc(setSidebar);
-            setId(4);
-          }}
-          href="/public"
-        >
-          <p className="pt-6 text-sm font-bold cursor-pointer ">
-            საჯარო ინფორმაცია
-          </p>
-        </Link>
-        <Link
-          onClick={() => {
-            SidebarFunc(setSidebar);
-            setId(4);
-          }}
-          href="/statistics"
-        >
-          <p
-            className={`pt-6 text-sm font-bold ${
-              window.location.pathname === "/statistics" ||
-              window.location.pathname === "/required" ||
-              window.location.pathname === "/public" ||
-              window.location.pathname === "/about"
-                ? "hidden"
-                : ""
-            } cursor-pointer`}
-          >
-            სტატისტიკა
-          </p>
-        </Link>
-        <Link
-          onClick={() => {
-            SidebarFunc(setSidebar);
-            setId(4);
-          }}
-          href="/required"
-        >
-          <p className="pt-6 text-sm font-bold cursor-pointer ">
-            საჭირო ინფორმაცია
-          </p>
-        </Link>
-      </div>
+      <SidebarNavigation />
     </div>
   );
 }
