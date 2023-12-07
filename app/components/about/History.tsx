@@ -3,12 +3,12 @@ import React from "react";
 function History() {
   return (
     <div
-      className="mt-[28%] ml-4 rounded-lg p-5 bg-white bg-opacity-50 mr-4 font-sans font-normal text-sm leading-5 tracking-wide
-     whitespace-normal break-words text-justify"
+      className="mt-[28%] sm:mt-[45px] ml-4 rounded-lg p-5 bg-white bg-opacity-50 mr-4 font-sans font-normal text-sm leading-5 tracking-wide
+     whitespace-normal sm:w-[60%] break-words text-justify"
     >
       <p className="font-sans">
         2004 წელს საქართველოს იუსტიციის სამინისტროს მმართველობის სფეროში ახალი
-        საჯარო სამართლის იურიდიული პირი - საჯარო რეესტრის ეროვნული სააგენტო
+        საჯარო სამართლის იუ რიდიული პირი - საჯარო რეესტრის ეროვნული სააგენტო
         შეიქმნა, რაც უძრავ ქონების ბაზრის განვითარებისთვის მნიშვნელოვანი ნაბიჯი
         იყო.
         <br /> <br /> საჯარო რეესტრის ეროვნულ სააგენტოს, როგორც მიწის მართვის

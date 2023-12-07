@@ -6,6 +6,7 @@ import Header from "./components/main/Header";
 import Footer from "./components/main/Footer";
 import Sidebar from "./components/main/Sidebar";
 import StarterText from "./components/main/StarterText";
+import Kukureia from "./Kukureia";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -13,9 +13,9 @@ function HeaderNav() {
 
   return (
     <div
-      className={`${nightMode ? "text-custom-light-blue" : "text-white"} flex ${
-        sidebar ? "min-w-[550px]" : ""
-      } justify-between `}
+      className={`${
+        nightMode ? "text-custom-light-blue" : "text-white"
+      } hidden lg:flex ${sidebar ? "min-w-[550px]" : ""} justify-between `}
     >
       <Link
         onClick={() => {

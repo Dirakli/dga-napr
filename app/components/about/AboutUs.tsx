@@ -3,7 +3,8 @@ import React from "react";
 function AboutUs() {
   return (
     <div
-      className="mt-[28%] ml-4 rounded-lg p-5 bg-white bg-opacity-50 mr-4 font-sans sm:w-[70%] font-normal text-sm leading-5 tracking-wide
+      className="mt-[28%] sm:mt-[45px] ml-4 rounded-lg p-5 bg-white bg-opacity-50 mr-4 font-sans sm:w-[60%] 
+      font-normal text-sm leading-5 tracking-wide
        whitespace-normal break-words text-justify"
     >
       <p className="font-sans">

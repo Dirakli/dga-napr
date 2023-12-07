@@ -11,18 +11,17 @@ function Structure() {
 
   return (
     <div className="h-screen w-full overflow-hidden flex flex-col">
-      <div className="flex items-center">
+      <div onClick={SelectFunc} className="flex items-center cursor-pointer">
         <Image
-          onClick={SelectFunc}
           src="./icons/arrows/ArrowUp.svg"
           alt="left side arrow"
           className={`${
             nightMode ? "bg-gray-300" : "bg-neutral-900"
-          } transform -rotate-90 `}
+          } transform -rotate-90`}
           width={35}
           height={30}
         />
-        <p className="text-sm cursor-pointer rounded-sm p-2 text-custom-light-blue">
+        <p className="text-sm rounded-sm p-2 text-custom-light-blue">
           სააგენტოს შესახებ
         </p>
       </div>

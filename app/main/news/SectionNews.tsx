@@ -6,13 +6,14 @@ function SectionNews() {
 
   const renderNews = () => {
     return (
-      <div className="pl-32 pr-32 pb-16 overflow-hidden">
+      <div className="sm:pl-32 pl-8 pr-8 sm:pr-32 sm:pb-16 overflow-hidden">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
           {dataPhotos.slice(0, 6).map((photo: any, index: number) => (
             <div
               className={`${
                 nightMode ? "hover:bg-slate-50" : "hover:bg-neutral-800"
-              } flex flex-col hover:rounded-b hover:pb-3 hover:translate-y-8px  delay-100 duration-200 justify-between items-start mt-3.5 cursor-pointer`}
+              } flex flex-col hover:rounded-b hover:pb-3 hover:translate-y-8px  delay-100 duration-200
+               justify-between items-start mt-3.5 cursor-pointer`}
               key={index}
             >
               <img

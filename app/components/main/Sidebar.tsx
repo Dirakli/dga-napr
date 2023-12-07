@@ -45,7 +45,7 @@ function Sidebar() {
         sidebar ? "translate-x-0" : "-translate-x-full"
       } fixed ${
         nightMode ? "bg-white" : "bg-neutral-900"
-      } h-screen w-65 flex flex-col border-r-[1px] border-red-100 items-start justify-start pt-10 pl-8 overflow-hidden`}
+      } h-screen w-65 flex lg:hidden flex-col border-r-[1px] border-red-100 items-start justify-start pt-10 pl-8 overflow-hidden`}
     >
       <div>
         <Image

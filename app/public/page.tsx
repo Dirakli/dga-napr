@@ -47,13 +47,41 @@ function page() {
       } text-black flex overflow-hidden pl-4 pb-8 flex-col`}
     >
       <div
+        className={` ${
+          !nightMode ? "bg-black" : "bg-[#e5e7eb]"
+        } h-full w-0.5 hidden sm:flex absolute left-4`}
+      ></div>
+      <ul
+        className={` ${
+          selectedSection === "სტრუქტურა" ? "sm:hidden" : "sm:flex"
+        } hidden sm:flex flex-col opacity-50 absolute top-20 left-4`}
+      >
+        {listPublic.map((item: any, index: any) => {
+          return (
+            <li
+              key={index}
+              onClick={() => handleItemClick(item)}
+              className={`text-sm pl-[2px] mt-4 cursor-pointer ${
+                selectedSection === item
+                  ? "text-custom-blue"
+                  : "text-arrow-gray active:text-custom-blue"
+              } ${
+                selectedSection === item ? "border-l-2 border-custom-blue" : ""
+              } `}
+            >
+              {item}
+            </li>
+          );
+        })}
+      </ul>
+      <div
         id="125"
         ref={selectorRef}
         className={`${!isOpen ? "rounded-lg" : "rounded-t-lg"} ${
           nightMode ? "bg-custom-selector-white" : "bg-neutral-800"
         } p-3 fixed h-10 flex flex-col left-4 right-4 items-center ${
           nightMode ? "border-white" : "border-gray-500"
-        } justify-between top-16 ${isOpen ? "border-b-2" : ""} `}
+        } justify-between top-16 ${isOpen ? "border-b-2" : ""} sm:hidden`}
       >
         <button
           onClick={() => setIsOpen((prev) => !prev)}

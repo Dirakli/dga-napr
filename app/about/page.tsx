@@ -46,10 +46,38 @@ function page() {
     <div
       className={`${nightMode ? "" : "bg-neutral-900"} w-full ${
         !showMainContent ? "flex" : "hidden"
-      } text-black overflow-hidden pb-8 flex-col sm:border-l-2 ${
+      } text-black overflow-hidden pb-8 flex-col sm:h-100-plus sm:border-l-2 ${
         !nightMode ? "sm:border-black" : ""
       } `}
     >
+      <div
+        className={` ${
+          !nightMode ? "bg-black" : "bg-[#e5e7eb]"
+        } h-full w-0.5 hidden sm:flex absolute left-4`}
+      ></div>
+      <ul
+        className={` ${
+          selectedItem === "სტრუქტურა" ? "sm:hidden" : "sm:flex"
+        } hidden sm:flex flex-col opacity-50 absolute top-20 left-4`}
+      >
+        {list.map((item: any, index: any) => {
+          return (
+            <li
+              key={index}
+              onClick={() => handleItemClick(item)}
+              className={`text-sm pl-[2px] mt-4 cursor-pointer ${
+                selectedItem === item
+                  ? "text-custom-blue"
+                  : "text-arrow-gray active:text-custom-blue"
+              } ${
+                selectedItem === item ? "border-l-2 border-custom-blue" : ""
+              } `}
+            >
+              {item}
+            </li>
+          );
+        })}
+      </ul>
       <div
         id="125"
         ref={selectorRef}

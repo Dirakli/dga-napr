@@ -3,8 +3,8 @@ import React from "react";
 function Formers() {
   return (
     <div
-      className="mt-[28%]  ml-4 rounded-lg p-5 bg-white bg-opacity-50 mr-4 font-sans font-normal text-sm leading-5 tracking-wide
-     whitespace-normal break-words text-justify"
+      className="mt-[28%] sm:mt-[45px]  ml-4 rounded-lg p-5 bg-white bg-opacity-50 mr-4 font-sans font-normal text-sm leading-5 tracking-wide
+     whitespace-normal break-words sm:w-[60%] text-justify"
     >
       <h1 className="text-lg ">თავმჯდომარეები</h1>
       <p className="font-sans">

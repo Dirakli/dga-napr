@@ -1,24 +1,52 @@
 "use client";
+import "rmc-picker/assets/index.css";
+import Picker from "rmc-picker/lib/Picker";
 import React from "react";
 
+const textArray = [
+  "მიწის რეგისტრაციის რეფორმა",
+  "უძრავი ქონება",
+  "ბიზნესი•ააიპ",
+  "იურიდიული პრაქტიკა",
+  "ეკონომიკური საქმიანობები",
+  "შეზღუდვები და უფლებები",
+  "მისამართები",
+  "გეოინფორმაცია, რუკები",
+  "პოლიტიკური პარტიები",
+  "მუნიციპალიტეტები",
+  "საინფორმაციო სერვისები",
+  "გირავნობა, ლიზინგი",
+  "საჯარო სტატუსი",
+];
+
 function SectionPicker() {
+  const [value, setValue] = React.useState();
+
+  const onChange = (value: any) => {
+    console.log(value);
+    setValue(value);
+  };
+
+  const getItems = () => {
+    console.log("valueee:", value);
+    return textArray.map((text, index) => (
+      <Picker.Item value={index + ""} key={index}>
+        {text}
+      </Picker.Item>
+    ));
+  };
+
+  const [items, setItems] = React.useState(getItems());
+
   return (
-    <div className="overflow-hidden flex h-smaller-height justify-center item-center ">
-      <div className=" text-custom-blue flex flex-col items-center justify-center ">
-        <p>მიწის რეგისტრაციის რეფორმა</p>
-        <p>უძრავი ქონება</p>
-        <p>ბიზნესი•ააიპ</p>
-        <p>იურიდიული პრაქტიკა</p>
-        <p>ეკონომიკური საქმიანობები</p>
-        <p>შეზღუდვები და უფლებები</p>
-        <p>მისამართები</p>
-        <p>გეოინფორმაცია, რუკები</p>
-        <p>პოლიტიკური პარტიები</p>
-        <p>მუნიციპალიტეტები</p>
-        <p>საინფორმაციო სერვისები</p>
-        <p>გირავნობა, ლიზინგი</p>
-        <p>საჯარო სტატუსი</p>
-      </div>
+    <div className="w-[215px] h-[210px] bg-red-300">
+      <Picker
+        className="bg-blue-300"
+        selectedValue={value}
+        onValueChange={onChange}
+      >
+        {items}
+      </Picker>
     </div>
   );
 }
