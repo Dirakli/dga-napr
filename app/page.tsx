@@ -63,7 +63,9 @@ export default function Home(): JSX.Element {
         } sm:ml-4 sm:border-l-2 sm:w-screen justify-center items-center`}
       >
         {id === 1 ? (
-          <SectionServices />
+          <div className="h-small-height-vh flex justify-between items-center">
+            <SectionServices />
+          </div>
         ) : id === 2 ? (
           <SectionNews />
         ) : id === 3 ? (

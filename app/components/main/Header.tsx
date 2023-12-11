@@ -20,6 +20,8 @@ function Header() {
     ChangeFunc,
   }: any = useThemeContext();
 
+  const [isAdaptiveHovered, setIsAdaptiveHovered] = useState<boolean>(false);
+
   function Toggle() {
     setMoreInfo(!moreInfo);
     console.log(moreInfo);
@@ -33,6 +35,10 @@ function Header() {
   function showSearchBar() {
     setVisibleSearchbar(true);
     console.log("visibleSearchbar", visibleSearchbar);
+  }
+
+  function changeAdaptive(prop: any) {
+    setIsAdaptiveHovered(prop);
   }
 
   return (
@@ -127,6 +133,10 @@ function Header() {
               height={15.5}
             />
             <Image
+              onMouseOver={() => {
+                changeAdaptive(true);
+              }}
+              onMouseOut={() => changeAdaptive(false)}
               className={`${
                 moreInfo ? "flex" : "hidden"
               } sm:flex cursor-pointer`}
@@ -139,6 +149,13 @@ function Header() {
               width={25}
               height={30}
             />
+            {isAdaptiveHovered ? (
+              <div className="absolute bg-slate-200 p-1 pr-2 pl-2 rounded top-4 right-60">
+                hello world
+              </div>
+            ) : (
+              ""
+            )}
             <Image
               className={`${
                 moreInfo ? "flex" : "hidden"

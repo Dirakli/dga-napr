@@ -30,7 +30,7 @@ function SectionPicker() {
   const getItems = () => {
     console.log("valueee:", value);
     return textArray.map((text, index) => (
-      <Picker.Item value={index + ""} key={index}>
+      <Picker.Item className="bg-red-400 " value={index + ""} key={index}>
         {text}
       </Picker.Item>
     ));
