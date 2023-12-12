@@ -4,6 +4,7 @@ import { useThemeContext } from "./context/theme";
 import SectionNews from "./main/news/SectionNews";
 import SectionContacts from "./main/contacts/SectionContacts";
 import ServiceList from "./components/main/ServiceList";
+import Link from "next/link";
 
 export default function Home(): JSX.Element {
   const { id, setId, nightMode }: any = useThemeContext();
@@ -42,9 +43,11 @@ export default function Home(): JSX.Element {
           კონტაქტი
         </li>
       </ul>
-      <p className="hidden pl-1 sm:flex text-sm text-gray-500 flex-col opacity-50 absolute cursor-pointer left-[20px] top-[80%]">
-        საიტის <br /> რუკა
-      </p>
+      <Link href="/sitemap">
+        <p className="hidden pl-1 sm:flex text-sm text-gray-500 flex-col opacity-50 absolute cursor-pointer left-[20px] top-[80%]">
+          საიტის <br /> რუკა
+        </p>
+      </Link>
       {id === 3 ? (
         <div className="hidden pl-1 text-sm bigger-width text-gray-500 sm:flex justify-between opacity-50 absolute cursor-pointer left-[20px] top-[95%]">
           <p> საჯარო რეესტრის ეროვნული სააგენტო 2022წ</p>
