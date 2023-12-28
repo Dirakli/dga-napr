@@ -58,8 +58,8 @@ function Sidebar() {
           width={20}
           height={20}
         />
+        <SidebarNavigation />
       </div>
-      <SidebarNavigation />
     </div>
   );
 }

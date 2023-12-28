@@ -7,7 +7,7 @@ function page() {
 
   return (
     <div
-      className={`${!nightMode ? "bg-neutral-900" : ""} text-black ${
+      className={`text-black ${
         !showMainContent ? "flex" : "hidden"
       } flex-col h-screen justify-center items-center `}
     >

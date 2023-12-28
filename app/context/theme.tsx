@@ -16,6 +16,9 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(
     "ჩვენ შესახებ"
   );
+  const [selectedService, setSelectedService] = useState(
+    "მიწის რეგისტრაციის ფორმა"
+  );
 
   function ChangeFunc(num: any) {
     setId(num);
@@ -81,6 +84,8 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
         nightMode,
         setNightMode,
         NightModeFunc,
+        selectedService,
+        setSelectedService,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useThemeContext } from "@/app/context/theme";
 
 function Structure() {
-  const { nightMode, selectedItem, setSelectedItem }: any = useThemeContext();
+  const { nightMode, setSelectedItem }: any = useThemeContext();
 
   function SelectFunc() {
     return setSelectedItem("ჩვენ შესახებ");

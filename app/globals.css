@@ -266,3 +266,16 @@ h1,
 .bigger-width {
   width: calc(100% - 50px);
 }
+
+@media screen and (min-width: 640px) {
+  .background-dots {
+    background-image: url("/icons/dots.svg");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 30%;
+  }
+}
+
+.circles div {
+  transform: rotate(calc(360deg / 9 * var(--i)));
+}

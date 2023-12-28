@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
   }
 
   return (
-    <div className={`${!nightMode ? "bg-neutral-900" : ""} overflow-hidden`}>
+    <div className={`${!nightMode ? "bg-transparent" : ""} overflow-hidden`}>
       <ul className="hidden sm:flex flex-col opacity-50 absolute left-4 top-[70px] ">
         <li
           onClick={() => ChangeId(1)}
@@ -59,7 +59,7 @@ export default function Home(): JSX.Element {
       )}
       {id === 1 ? <ServiceList /> : ""}
       <div
-        className={`${!nightMode ? "bg-neutral-900" : ""} flex 
+        className={`${!nightMode ? "" : ""} flex 
         h-small-height sm:h-big-height
         ${
           !nightMode ? "sm:border-black" : ""

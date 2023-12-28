@@ -1,7 +1,8 @@
 "use client";
 import "rmc-picker/assets/index.css";
 import Picker from "rmc-picker/lib/Picker";
-import React from "react";
+import React, { useEffect } from "react";
+import { useThemeContext } from "@/app/context/theme";
 
 const textArray = [
   "მიწის რეგისტრაციის რეფორმა",
@@ -21,6 +22,7 @@ const textArray = [
 
 function SectionPicker() {
   const [value, setValue] = React.useState();
+  const { selectedService, setSelectedService }: any = useThemeContext();
 
   const onChange = (value: any) => {
     console.log(value);
@@ -30,7 +32,7 @@ function SectionPicker() {
   const getItems = () => {
     console.log("valueee:", value);
     return textArray.map((text, index) => (
-      <Picker.Item className="bg-red-400 " value={index + ""} key={index}>
+      <Picker.Item value={index + ""} key={index}>
         {text}
       </Picker.Item>
     ));
@@ -39,14 +41,15 @@ function SectionPicker() {
   const [items, setItems] = React.useState(getItems());
 
   return (
-    <div className="w-[215px] h-[210px] bg-red-300">
-      <Picker
-        className="bg-blue-300"
-        selectedValue={value}
-        onValueChange={onChange}
-      >
-        {items}
-      </Picker>
+    <div className="w-[215px] h-[210px] ">
+      <div className="sm:hidden">
+        <Picker selectedValue={value} onValueChange={onChange}>
+          {items}
+        </Picker>
+      </div>
+      <div className="sm:flex hidden text-center">
+        <h1 className="text-custom-blue text-[24px]">{selectedService}</h1>
+      </div>
     </div>
   );
 }

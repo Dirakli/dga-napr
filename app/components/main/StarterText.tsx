@@ -33,7 +33,7 @@ const Home = (): JSX.Element => {
 
   return (
     <div
-      className={`transition-transform z-[10000] duration-300 ease-in-out transform ${
+      className={` background-dots transition-transform z-[10000] duration-300 ease-in-out transform ${
         showMainContent ? "translate-x-0" : "-translate-x-full"
       } ${
         nightMode ? "bg-gray-300" : "bg-neutral-900"

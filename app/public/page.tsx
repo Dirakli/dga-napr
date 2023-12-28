@@ -2,10 +2,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import listPublic from "../../listPublic.json";
-import AboutUs from "../components/about/AboutUs";
-import History from "../components/about/History";
-import Formers from "../components/about/Formers";
-import Structure from "../components/about/Structure";
 import Acts from "../components/public/Acts";
 import { useThemeContext } from "../context/theme";
 
@@ -42,7 +38,7 @@ function page() {
 
   return (
     <div
-      className={`${!nightMode ? "bg-neutral-900" : ""} w-full ${
+      className={` w-full ${
         !showMainContent ? "flex" : "hidden"
       } text-black flex overflow-hidden pl-4 pb-8 flex-col`}
     >

@@ -42,12 +42,8 @@ function Header() {
   }
 
   return (
-    <div
-      className={`${
-        nightMode ? "bg-gray-300" : "bg-neutral-900"
-      } sticky top-0 z-50`}
-    >
-      <div className="p-4 pb-3 z-10 flex justify-between items-center">
+    <div className={` sticky top-0 z-50`}>
+      <div className="p-4 pb-3 z-10 flex justify-between items-center bg-gray-300 sm:bg-transparent">
         <div className="w-24 flex items-center justify-between">
           {!sidebar ? (
             <Image
@@ -150,8 +146,8 @@ function Header() {
               height={30}
             />
             {isAdaptiveHovered ? (
-              <div className="absolute bg-slate-200 p-1 pr-2 pl-2 rounded top-4 right-60">
-                hello world
+              <div className="absolute bg-slate-200 p-1 text-xs pr-2 pl-2 rounded top-4 right-60">
+                დამუშავების პროცესშია
               </div>
             ) : (
               ""

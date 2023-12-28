@@ -38,7 +38,7 @@ function page() {
 
   return (
     <div
-      className={`${!nightMode ? "bg-neutral-900" : ""} w-full  ${
+      className={` w-full  ${
         !showMainContent ? "flex" : "hidden"
       } text-black overflow-hidden pl-4 pb-8 flex-col`}
     >

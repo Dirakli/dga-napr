@@ -108,7 +108,7 @@ const Form = () => {
           გაგზავნა
         </button>
         {successMessage && (
-          <p className="text-red-500 text-xs mt-2">{successMessage}</p>
+          <p className="text-green-500 text-xs mt-2">{successMessage}</p>
         )}
       </form>
     </div>

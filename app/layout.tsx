@@ -6,6 +6,7 @@ import Header from "./components/main/Header";
 import Footer from "./components/main/Footer";
 import Sidebar from "./components/main/Sidebar";
 import StarterText from "./components/main/StarterText";
+import Wrapper from "./components/main/Wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,13 +25,13 @@ export default function RootLayout({
       <head></head>
       <body className={inter.className}>
         <ThemeContextProvider>
-          <main className="bg-gray-300 min-h-screen w-full flex flex-col justify-between">
+          <Wrapper>
             <Header />
             {children}
             <Footer />
             <Sidebar />
             <StarterText />
-          </main>
+          </Wrapper>
         </ThemeContextProvider>
       </body>
     </html>
