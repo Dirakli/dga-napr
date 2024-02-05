@@ -42,8 +42,12 @@ function Header() {
   }
 
   return (
-    <div className={` sticky top-0 z-50`}>
-      <div className="p-4 pb-3 z-10 flex justify-between items-center bg-gray-300 sm:bg-transparent">
+    <div className="sticky top-0 z-50">
+      <div
+        className={`p-4 pb-3 z-10 flex justify-between items-center sm:bg-transparent ${
+          !nightMode ? "bg-neutral-900" : "bg-gray-300"
+        }`}
+      >
         <div className="w-24 flex items-center justify-between">
           {!sidebar ? (
             <Image

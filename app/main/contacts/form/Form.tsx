@@ -64,7 +64,7 @@ const Form = () => {
               placeholder="სახელი"
               value={formData.name}
               onChange={handleChange}
-              className="bg-transparent border-b-2 w-[48%] h-14 border-white placeholder-custom-gray text-custom-gray text-xs font-bold"
+              className="bg-transparent pl-2 border-b-2 w-[48%] h-14 border-white placeholder-custom-gray text-custom-gray text-xs font-bold"
             />
             <input
               type="text"
@@ -73,7 +73,7 @@ const Form = () => {
               name="surname"
               value={formData.surname}
               onChange={handleChange}
-              className="bg-transparent border-b-2 w-[48%] h-14 border-white placeholder-custom-gray text-custom-gray text-xs font-bold"
+              className="bg-transparent pl-2 border-b-2 w-[48%] h-14 border-white placeholder-custom-gray text-custom-gray text-xs font-bold"
             />
           </div>
         </div>
@@ -86,7 +86,7 @@ const Form = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="bg-transparent border-b-2 w-full h-14 border-white placeholder-custom-gray text-custom-gray text-xs font-bold"
+            className="bg-transparent pl-2 border-b-2 w-full h-14 border-white placeholder-custom-gray text-custom-gray text-xs font-bold"
           />
         </div>
 
@@ -97,7 +97,7 @@ const Form = () => {
             placeholder="შეტყობინება"
             value={formData.message}
             onChange={handleChange}
-            className="bg-transparent border-b-2 w-full border-white h-36 placeholder-custom-gray text-custom-gray text-xs font-bold"
+            className="bg-transparent pl-2 border-b-2 w-full border-white h-36 placeholder-custom-gray text-custom-gray text-xs font-bold"
           ></textarea>
         </div>
 

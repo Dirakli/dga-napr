@@ -22,9 +22,9 @@ function Footer() {
 
   return id !== 4 ? (
     <div
-      className={` sticky ${
-        selectedItem ? "" : "hidden"
-      } bg-gray-300 bottom-0 sm:hidden`}
+      className={` sticky ${selectedItem ? "" : "hidden"} ${
+        !nightMode ? "bg-neutral-900" : "bg-gray-300"
+      } bottom-0 sm:hidden`}
     >
       <div className="flex items-center justify-between p-4 pb-3 border-t-[1px] border-white h-16">
         <span className="text-sm cursor-pointer text-custom-blue">
