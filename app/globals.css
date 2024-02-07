@@ -279,3 +279,7 @@ h1,
 .circles div {
   transform: rotate(calc(360deg / 9 * var(--i)));
 }
+
+.scrollbarr-hidden::-webkit-scrollbar {
+  display: none;
+}

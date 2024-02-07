@@ -180,7 +180,7 @@ function SectionContacts() {
         <h1 className="text-custom-light-blue text-base font-bold leading-5">
           მისამართი
         </h1>
-        <ul className="mt-6 sm:h-[275px] sm:overflow-scroll ">
+        <ul className="mt-6 sm:h-[275px] sm:overflow-scroll scrollbarr-hidden">
           <li
             className="border-b border-white pb-2.5 pt-2.5 cursor-pointer"
             onClick={handleTbilisiClick}
